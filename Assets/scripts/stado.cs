@@ -13,11 +13,21 @@ public abstract class stado : ScriptableObject // por que el run no va ha hacer 
 {
 
     public stadoParameters[] stadoParameters;
-    //private bool CheckActions()
-    // {
-    //     // devolvemos true si algunas de sus acciones se cumple o false si es al contrario 
-    // }
+    //private bool CheckActions(GameObject owner)
+    //{
+    //    for (int 1 = 0; 1 < stadoParameters.Length; 1++)
+    //    {
+    //        if (stadoParameters[1].actionValue == stadoParameters[1].action.Check(owner))
+    //        {
+    //            return (stadoParameters[1].nextstado);
+    //        }
+
+    //    }
+    //    return null;// devolvemos true si algunas de sus acciones se cumple o false si es al contrario 
+    //}
     public abstract stado Run(GameObject owner);
     //state machine cambio de estado de la ia
-    //state machine cambio de estado de la ia
 }
+
+
+

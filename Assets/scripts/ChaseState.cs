@@ -10,5 +10,7 @@ public class ChaseState : stado
     public override stado Run(GameObject owner)
     {
         throw new System.NotImplementedException();
+
     }
+
 }
