@@ -20,5 +20,11 @@ public class heardAction : actions
         }
         return false; // no le escucho
     }
+
+    public override void DrawGizmo(GameObject owner)
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(owner.transform.position,radious); //area de sonido
+    }
     // Haria un metodo abstracto (en el estado) que recorriese todos los parametros he incorporase a ns gizmo y en el statemachine haces ondrowgizmos y llamas al metodo del stado para que se dibujan todos los gizmos
 }

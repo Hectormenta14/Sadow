@@ -22,5 +22,13 @@ public class stateMachine : MonoBehaviour
             currentState = nextState; // si nextstate no es nulo = el run ha decidido que una de las acciones se ha cumplido ps cambiamos de estado y si no se ejecuta run todo el rato
         }
 
+
+    }
+    public void OnDrawGizmos()
+    {
+        if (currentState) // si no le damos a play currentstate no tiene nada y llama al metodo con algo que no tiene nada asi que si initial o current state tiene algo lo dibujas
+        currentState.DrawAllActionsGizmos(gameObject);
+        else if(initialState)
+            initialState.DrawAllActionsGizmos(gameObject);
     }
 }
