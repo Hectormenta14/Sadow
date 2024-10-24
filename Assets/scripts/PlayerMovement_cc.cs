@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement_cc : MonoBehaviour
 {
-    public float speed, runningSpeed, rotationSpeed, gravityScale, jumpForce; // crear variables para el editor
+    public float    speed, runningSpeed,acceleration, rotationSpeed, gravityScale, jumpForce; // crear variables para el editor
     private float yVelocity = 0, currentSpeed; //aqui se va a aguardar la gravedad
     private Vector3 auxMovementVector;
     private CharacterController characterController; // no tiene rigitbody asi q todo en update
+   
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +31,22 @@ public class PlayerMovement_cc : MonoBehaviour
         Jump(jumpPressed); // se añade la variable por que no esta declarada en el public class
         Movement(x, z, shiftPressed); //metodo de movimiento 
         RotatePlayer(mouseX);
+        //interpolacion de la velocidad (aceleracion)
+        if (shiftPressed && (x != 0 || z != 0)) // ponemos el codigo para que al darle al sifht sin moverse no acelere
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, runningSpeed, acceleration + Time.deltaTime); // de 0 a correr
+
+        }
+        else if (x != 0 || z !=0)
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, speed, acceleration + Time.deltaTime); // de 0 a andar
+        }
+        else
+        {
+            currentSpeed = Mathf.Lerp(currentSpeed, 0, acceleration + Time.deltaTime); // por que vamos a la felocidad que nos encontramos hasta 0 por que estamos frenando 
+        }
     }
+    
     void Jump(bool jumpPressed) // se añade el bool o lo que toque por que las variables solo estan declaradas en el update
     {
         if (jumpPressed && characterController.isGrounded)
@@ -40,14 +57,7 @@ public class PlayerMovement_cc : MonoBehaviour
     }
     void Movement(float x, float z, bool shiftPressed) //parametros buleanos
     {
-        if (shiftPressed) // que corra cuendo le sas a shift
-        {
-            currentSpeed = runningSpeed;
-        }
-        else
-        {
-            currentSpeed = speed;
-        }
+       
         Vector3 movementVector = transform.forward * currentSpeed * z + transform.right * currentSpeed * x; // vector de movimiento
         auxMovementVector = movementVector;
         if (!characterController.isGrounded)
@@ -61,9 +71,9 @@ public class PlayerMovement_cc : MonoBehaviour
         if (x != 0 || z != 0) // codigo caca, borrar en el futuro
             characterController.Move(movementVector); //metodo que tiene el character controller para mover el objeto asignado
     }
-    public Vector3 GetMovementVector()
+    public float GetCurrentSpeed()
     {
-        return auxMovementVector;
+        return currentSpeed; // asi accedemos a la velocidad
     } //no recalcular el vector de movimeinto otra vez
     void RotatePlayer(float mouseX)
     {

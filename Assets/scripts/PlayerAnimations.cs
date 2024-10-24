@@ -45,6 +45,6 @@ public class PlayerAnimations : MonoBehaviour
     //}
     private void LateUpdate() // nos aseguramos que el uptade de animation se ejecute despues del player movement para que no falle
     {
-        animator.SetFloat("Speed", playerMovement_Cc.GetMovementVector().magnitude / playerMovement_Cc.runningSpeed); // 
+        animator.SetFloat("Speed", playerMovement_Cc.GetCurrentSpeed()/ playerMovement_Cc.runningSpeed); 
     }
 }
