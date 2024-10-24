@@ -12,11 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c8b6f703f49254ca7be907e1173abe, type: 3}
   m_Name: chaseState
   m_EditorClassIdentifier: 
-  stadoParameters:
-  - actionParameters:
-    - action: {fileID: 11400000, guid: 31ceb9f5fa33bef4691758930a97ef90, type: 2}
-      actionValue: 0
-    - action: {fileID: 11400000, guid: a1f3a0d27ca180245bbf4cb842ae22e3, type: 2}
-      actionValue: 0
-    nextstado: {fileID: 11400000, guid: 11b9177c0ee59e3418b5fb6a66473a28, type: 2}
-    and: 1
+  stadoParameters: []
+  BlendParameter: Speed

@@ -16,8 +16,21 @@ MonoBehaviour:
   - actionParameters:
     - action: {fileID: 11400000, guid: 31ceb9f5fa33bef4691758930a97ef90, type: 2}
       actionValue: 1
+    nextstado: {fileID: 11400000, guid: 01546e915222ae843a9fc64f4186aeb3, type: 2}
+    and: 1
+  - actionParameters:
+    - action: {fileID: 11400000, guid: 31ceb9f5fa33bef4691758930a97ef90, type: 2}
+      actionValue: 1
+    - action: {fileID: 11400000, guid: a1f3a0d27ca180245bbf4cb842ae22e3, type: 2}
+      actionValue: 1
+    nextstado: {fileID: 11400000, guid: 01546e915222ae843a9fc64f4186aeb3, type: 2}
+    and: 0
+  - actionParameters:
+    - action: {fileID: 11400000, guid: 31ceb9f5fa33bef4691758930a97ef90, type: 2}
+      actionValue: 1
     - action: {fileID: 11400000, guid: a1f3a0d27ca180245bbf4cb842ae22e3, type: 2}
       actionValue: 1
     nextstado: {fileID: 11400000, guid: 01546e915222ae843a9fc64f4186aeb3, type: 2}
     and: 1
   guardPoint: {x: 562, y: 115, z: 724}
+  BlendParameter: Speed
