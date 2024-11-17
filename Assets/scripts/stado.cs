@@ -31,7 +31,7 @@ public abstract class stado : ScriptableObject // por que el run no va ha hacer 
                 if (actionParameters.action.Check(owner) == actionParameters.actionValue) // si el check de la accion cumple con su valor asignado
                 {//hay que comprobarlo con el and
                     if (!stadoParameters[i].and) // si solo se le cumple una 
-                    {
+                     {
                         return stadoParameters[i].nextstado; // devolvemos directamente el siguente estado
                     }
 

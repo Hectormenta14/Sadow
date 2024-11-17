@@ -14,7 +14,7 @@ public class guardState : stado
         stado nextState = CheckActions(owner); //accedemos al metodo check actios
         NavMeshAgent navMeshAgent = owner.GetComponent<NavMeshAgent>();
         Animator animator = owner.GetComponent<Animator>();
-        navMeshAgent.SetDestination(guardPoint); // su destino es el el pinto que tine q montar guardia
+        navMeshAgent.SetDestination(guardPoint); // su destino es el el punto que tine q montar guardia
         animator.SetFloat(BlendParameter, navMeshAgent.velocity.magnitude / navMeshAgent.speed); // lo dividimos por que quede entre 0 o 1
         
 

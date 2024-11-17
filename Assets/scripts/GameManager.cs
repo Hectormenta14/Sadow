@@ -76,4 +76,5 @@ public class GameManager : MonoBehaviour
     {
         return hours;
     }
+
 }
